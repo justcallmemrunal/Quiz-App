@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- home page  -->
+    <div class="home_container">
+        <!-- logo -->
+        <img id="logo" src="images/test.jpg" alt="logo">
+        <h1>Hello User</h1>
+        <h3>Enter your name to continue</h3>
+        <!-- for username -->
+        <div class="namebox">
+            <input type="text" id="username" placeholder="ENTER YOUR NAME">
+            <button id="userbutton">ENTER</button>
+        </div>
+        <div class="hint">You will have 10 seconds to answer each question</div>
+        <!-- category selection -->
+        <div class="quizcategory">
+            <h1>Select Category</h1>
+            <!-- <div class="categories">
+                <button class="categ">pipes</button>
+                <button class="categ">probability</button>
+                <button class="categ">ages</button>
+                <button class="categ">profitloss</button>
+            </div> -->
+            <div class="categories">
+                <input type="radio" class="radios" id="rad-1" name="categ" value="Pipes And Cisterns">
+                <label class="categ categ-1" for="rad-1">Pipes And Cisterns</label>
+                <input type="radio" class="radios" id="rad-2" name="categ" value="Probability">
+                <label class="categ categ-2" for="rad-2">Probability</label>
+                <input type="radio" class="radios" id="rad-3" name="categ" value="Problem On Ages">
+                <label class="categ categ-3" for="rad-3">Problem On Ages</label>
+                <input type="radio" class="radios" id="rad-4" name="categ" value="Profit And Loss">
+                <label class="categ categ-4" for="rad-4">Profit And Loss</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- quiz box html -->
+    <div class="quiz_container">
+        <h2 id="subject">title</h2>
+        <!-- for score and timer -->
+        <div class="time_score">
+            <div class="timer">
+                <p class="timecount">10</p>
+            </div>
+            <div class="score">
+                SCORE:0
+            </div>
+        </div>
+        <!-- for question number circle -->
+        <div class="question_no">
+
+        </div>
+        <!-- for displaying questions -->
+        <div class="question">
+            <!-- here questions will be displayed -->
+
+        </div>
+        <!-- options for questions -->
+        <div class="que_options">
+            <!-- here options will be displayed -->
+        </div>
+        <!-- the next button -->
+        <button class="next_que">Next QUestion</button>
+
+    </div>
+
+    <!-- results page -->
+    <div class="result_container">
+        <p id="head">Quiz Result</p>
+        <p id="userap"></p>
+        <p id="timetaken">time taken</p>
+        <p id="totalquestions">totalquestions</p>
+        <p id="attempted">attempted</p>
+        <p id="correct">correct</p>
+        <p id="wrong">wrong</p>
+        <p id="percentage">percentage</p>
+        <div class="act_buttons">
+            <button id="startagain">Start Again</button>
+            <button id="go_to_home">Go To Home</button>
+        </div>
+    </div>
+
+    <script src="/js files/questions.js"></script>
+    <script src="/js files/script.js"></script>
+</body>
+</html>

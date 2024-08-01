@@ -1,0 +1,298 @@
+:root {
+    --blue: #1fa8e7;
+    --q_outline: #c2af91;
+    --dark:#000000;
+    --whitee:#ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.home_container, .quiz_container, .result_container {
+    position: absolute;
+    left: 25%;
+}
+
+/* displaying containers */
+.quiz_container.activequiz, .result_container.activeresult {
+    opacity: 1;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.home_container.deactivehome {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* hiding contaniers */
+.quiz_container, .result_container {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+
+/* CSS FOR HOME PAGE */
+.home_container, .quiz_container, .result_container {
+    margin-top: 50px;
+    height: 85dvh;
+    width: 50vw;
+    border: 1px solid rgba(0, 0, 0, 0.247);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-top: 30px; */
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.16), 0 6px 20px 0 rgba(0, 0, 0, 0.16);
+}
+
+#logo {
+    height: 100px;
+    width: 100px;
+
+}
+
+.home_container > h1 {
+    color: var(--blue);
+    margin: 0;
+}
+
+#username {
+    width: 80%;
+    height: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 7px;
+}
+
+#userbutton {
+    height: 38px;
+    width: 80px;
+    background-color: var(--blue);
+    color: var(--whitee);
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.namebox {
+    width: 90%;
+}
+
+.hint {
+    color: gray;
+    margin: 10px;
+    padding: 5px;
+    width: 90%;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+/* categories */
+.categories {
+    display: grid;
+    grid-template-areas: 'auto auto'
+    'auto auto';
+    gap: 30px;
+    width: 90%;
+   
+}
+
+.categories > .categ {
+    height: 3rem;
+    background-color: var(--whitee);
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+
+}
+
+.categories > .categ:hover {
+    background-color: var(--blue);
+    color: var(--whitee);
+}
+
+.quizcategory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+
+.radios {
+    display: none;
+}
+
+#rad-1:checked ~ .categ-1,
+#rad-2:checked ~ .categ-2,
+#rad-3:checked ~ .categ-3,
+#rad-4:checked ~ .categ-4 {
+    background-color: var(--blue);
+    color: var(--whitee);
+}
+
+
+/* CSS FOR QUIZ PAGE */
+
+/* for timer ans score */
+.time_score {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 50px;
+}
+
+.score {
+    font-size: 30px;
+}
+
+/* for question number circle */
+.question_no {
+    height: 60px;
+    width: 60px;
+    font-size: 22px;
+    color: var(--blue);
+    background-color: var(--whitee);
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -30px;
+    z-index: 1;
+
+}
+
+/* for question box */
+.question {
+    height: 10rem;
+    width: 90%;
+    border: 2px solid var(--q_outline);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* for options selector */
+.que_options {
+    width: 90%;
+    display: grid;
+    margin: 30px;
+    grid-template-areas: 'auto auto'
+    'auto auto';
+    gap: 30px;
+   
+}
+
+/* css for option button */
+.que_options > .option {
+    height: 3rem;
+    /* width: 18rem; */
+    background-color: var(--whitee);
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    cursor: pointer;
+
+}
+
+/* hover effect for options */
+.que_options > .option:hover {
+    background-color: var(--blue);
+    color: var(--whitee);
+}
+
+/* for options functionality */
+.que_options .option.correct {
+    color: #155724;
+    background: #b4e8c0;
+    border: 1px solid #7ed392;
+}
+.que_options .option.incorrect{
+    color: #721c24;
+    background: #f5cdd0;
+    border: 1px solid #f1a5ac;
+}
+.que_options .option.disabled{
+    pointer-events: none;
+}
+
+/* nextbutton */
+.next_que {
+    height: 3rem;
+    width: 10rem;
+    background-color: var(--blue);
+    color: var(--whitee);
+    border: 0px;
+    border-radius: 25px;
+    font-size: 15px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* show next button */
+.next_que.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* trying to create timer */
+.timer {
+    height: 50px;
+    width: 50px;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* for results page */
+.result_container {
+    height: 70dvh;
+    width: 50vw;
+    font-size: 17px;
+}
+
+.result_container *{
+    font-size: 22px;
+    margin: 10px;
+}
+
+#head {
+    color: var(--blue);
+    font-size: 40px;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.act_buttons > button {
+    height: 3rem;
+    width: 10rem;
+    border: 0;
+    background-color: var(--blue);
+    color: var(--whitee);
+    border-radius: 30px;
+    margin: 10px;
+
+}
